@@ -1,0 +1,26 @@
+<div class="padding-10px border-box flex center-center gap-1em column">
+    <h1 class="no-margin">Add Information</h1>
+      <form [formGroup]="infoForm">
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+          <mat-label>Enter the meet up title:</mat-label>
+          <input matInput type="text" placeholder="Fighting Depression" required formControlName="title">
+          <mat-error *ngIf="infoForm.get('title')?.hasError('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+            <mat-label>Description:</mat-label>
+            <textarea matInput type="text" placeholder="Decription of your message" required formControlName="description"></textarea>
+            <mat-error *ngIf="infoForm.get('description')?.hasError('required')">
+              Description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+            <div class="flex gap-1em center-center full-width">
+              <button button mat-raised-button color="warn" (click)="cancel()" class="half-width">Cancel</button>
+              <button button mat-raised-button color="accent" (click)="addInfo()" [disabled]="infoForm.invalid" class="half-width">Add Meet Up</button>
+            </div>
+      </form>
+</div>
+
+
+

@@ -1,0 +1,56 @@
+<div class="padding-10px border-box flex center-center gap-1em column">
+    <h1 class="no-margin">Add Meet Up</h1>
+      <form [formGroup]="meetUpForm">
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+          <mat-label>Enter the meet up title:</mat-label>
+          <input matInput type="text" placeholder="Self-Development Class" required formControlName="title">
+          <mat-error *ngIf="meetUpForm.get('title')?.hasError('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+            <mat-label>Choose a date:</mat-label>
+            <input matInput [matDatepicker]="picker" required formControlName="date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="meetUpForm.get('date')?.hasError('required')">
+                Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+              <mat-label>Location:</mat-label>
+              <input matInput type="text" placeholder="Southern Sun Hotel Rosebank" required formControlName="location">
+              <mat-error *ngIf="meetUpForm.get('location')?.hasError('required')">
+                Location is <strong>required</strong>
+              </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+            <mat-label>Enter Time</mat-label>
+            <input matInput type="text" placeholder="12:00 - 16:00" required formControlName="time">
+            <mat-error *ngIf="meetUpForm.get('time')?.hasError('required')">
+              Time is <strong>required</strong>
+            </mat-error>
+      </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+            <mat-label>Additional Infomation (optional):</mat-label>
+            <input matInput type="text" placeholder="summary of meet-up" formControlName="additionalInfo">
+            <!-- <mat-error *ngIf="meetUpForm.get('password')?.hasError('required')">
+                Additional Infomation is <strong>required</strong>
+            </mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width" color="accent">
+        <mat-label>Link (optional):</mat-label>
+        <input matInput type="text" placeholder="Link to meeting" formControlName="link">
+        <!-- <mat-error *ngIf="meetUpForm.get('password')?.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error> -->
+  </mat-form-field>
+            <div class="flex gap-1em center-center full-width">
+              <button button mat-raised-button color="warn" (click)="cancel()" class="half-width">Cancel</button>
+              <button button mat-raised-button color="accent" (click)="addMeet()" [disabled]="meetUpForm.invalid" class="half-width">Add Meet Up</button>
+            </div>
+      </form>
+</div>
+
+
+

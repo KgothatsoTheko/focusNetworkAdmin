@@ -1,0 +1,29 @@
+<div class="padding-10px flex row border-box gap-1em full-width wrap">
+    <mat-card 
+      class="padding-10px gap-1em border-box cards column pointer hover2" 
+      *ngFor="let booking of bookings; let it = index">
+      <h3 *ngIf="mentors.get(booking.mentorId)">Mentor: {{ mentors.get(booking.mentorId)?.fullName }}</h3>
+      <h3 *ngIf="users.get(booking.userId)">Mentee: {{ users.get(booking.userId)?.fullName }}</h3>
+      <div class="flex gap-1em row">
+        <p class="no-margin"><strong>Date:</strong></p>
+        <p class="no-margin">{{ booking.date.slice(0,10)}}</p>
+      </div>
+      <div class="flex gap-1em row">
+        <p class="no-margin"><strong>Time:</strong></p>
+        <p class="no-margin">{{ booking.time }}</p>
+      </div>
+      <div class="flex gap-1em row">
+        <p class="no-margin"><strong>Status:</strong></p>
+        <p class="no-margin">{{ booking.status }}</p>
+      </div>
+      <div class="flex gap-1em row">
+        <p class="no-margin"><strong>Where:</strong></p>
+        <p class="no-margin">{{ booking.where }}</p>
+      </div>
+      <div class="flex end gap-1em">
+        <span class="material-symbols-outlined" matTooltip="Update booking" (click)="editBooking(booking)">edit</span>
+        <span class="material-symbols-outlined" matTooltip="Delete booking" (click)="deleteBooking(booking)">delete</span>
+      </div>
+    </mat-card>
+  </div>
+  

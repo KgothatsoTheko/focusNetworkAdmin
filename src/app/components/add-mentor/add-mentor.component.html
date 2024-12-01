@@ -1,0 +1,65 @@
+<div class="padding-10px border-box flex center-center gap-1em column">
+    <h1 class="no-margin">Add New Mentor</h1>
+      <form [formGroup]="mentorForm">
+        <div class="flex row gap-1em">
+            <mat-form-field appearance="fill" class="half-width" color="accent">
+                <mat-label>Enter mentor LinkedIn profile image URL</mat-label>
+                <input matInput type="text" placeholder="https://example.com/image.jpg" required formControlName="profileImage">
+                <mat-error *ngIf="mentorForm.get('profileImage')?.hasError('required')">
+                  Profile Image URL is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="half-width" color="accent">
+                    <mat-label>Enter mentor full name</mat-label>
+                    <input matInput type="text" placeholder="Joe Doe" required formControlName="fullName">
+                    <mat-error *ngIf="mentorForm.get('fullName')?.hasError('required')">
+                      Full Name is <strong>required</strong>
+                    </mat-error>
+              </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+              <mat-label>Enter mentor bio</mat-label>
+              <textarea matInput type="text" placeholder="Summary of the mentor" required formControlName="bio"></textarea>
+              <mat-error *ngIf="mentorForm.get('bio')?.hasError('required')">
+                Bio is <strong>required</strong>
+              </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width" color="accent">
+            <mat-label>Enter mentor expertise</mat-label>
+            <textarea matInput type="text" placeholder="Mentor skils/expertises" required formControlName="expertise"></textarea>
+            <mat-error *ngIf="mentorForm.get('expertise')?.hasError('required')">
+                Expertise is <strong>required</strong>
+            </mat-error>
+      </mat-form-field>
+      <mat-label>Availability:</mat-label>
+      <div class="flex row gap-1em" formGroupName="availability">
+        <mat-form-field appearance="fill" class="half-width" color="accent">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" required formControlName="date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="mentorForm.get('availability.date')?.hasError('required')">
+                Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="half-width" color="accent">
+            <mat-label>Enter Time</mat-label>
+            <input matInput type="text" placeholder="12:00 - 16:00" required formControlName="time">
+            <mat-error *ngIf="mentorForm.get('availability.time')?.hasError('required')">
+              Time is <strong>required</strong>
+            </mat-error>
+      </mat-form-field>
+      </div>
+      <mat-form-field appearance="fill" class="full-width" color="accent">
+        <mat-label>Enter mentor contact Information (Optional)</mat-label>
+        <input matInput type="text" placeholder="0716621625/LinkedIn URL" formControlName="contactInfo">
+        <!-- <mat-error *ngIf="mentorForm.get('contactInfo')?.hasError('required')">
+          Contact Info is <strong>required</strong>
+        </mat-error> -->
+        </mat-form-field>
+            <div class="flex gap-1em center-center full-width">
+              <button mat-raised-button color="warn" (click)="cancel()" class="half-width">Cancel</button>
+              <button mat-raised-button color="accent" (click)="add()" [disabled]="mentorForm.invalid" class="half-width">Add Mentor</button>
+            </div>
+      </form>
+</div>

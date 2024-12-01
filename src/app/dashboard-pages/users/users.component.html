@@ -1,0 +1,22 @@
+<div class="padding-10px flex row wrap border-box gap-1em full-width">
+    <mat-card class="padding-10px border-box cards pointer hover2 width-40p" *ngFor="let item of users">
+        <div class="flex center-center">
+            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" width="100%" />
+        </div><br>
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Full Name:</strong></p>
+            <p class="no-margin">{{item.fullName}}</p>
+        </div>
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Email:</strong></p>
+            <p class="no-margin">{{item.email}}</p>
+        </div>
+          <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Date Of Birth:</strong></p>
+            <p class="no-margin">{{item.dateOfBirth.slice(0,10)}}</p>
+        </div>
+        <div class="flex end gap-1em">
+            <span class="material-symbols-outlined" matTooltip="Delete User" (click)="deleteUser(item)">delete</span>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,37 @@
+.wrapperNav {
+    width: 15%;
+    gap: 1em;
+    background: #f5f5f5;
+    opacity: 0.9;
+  }
+
+  
+  .example-headers-align .mat-expansion-panel-header-description {
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+      margin-left: 8px;
+    }
+    .con {
+        background-color: #f6f6f6 !important;
+        opacity: 0.9;
+        
+    }
+    
+    .width-250px {
+        width: 250px;
+    }
+    
+    .toolbar {
+        height: 60px;
+        padding: 10px;
+        box-sizing: border-box;
+    }  
+    
+    .back {
+        background: url('../../../assets/images/logo4.png');
+        background-position: center;
+        background-repeat: no-repeat;
+    }

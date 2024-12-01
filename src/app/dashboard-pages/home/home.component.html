@@ -1,0 +1,29 @@
+<div class="padding-10px flex column border-box gap-1em full-width">
+    <h3 class="text-center">Overview:</h3>
+    <div class="flex space-between-center row">
+        <mat-card class="padding-10px border-box cards flex center-center column pointer hover2" (click)="viewUsers()">
+            <span class="material-symbols-outlined">
+                person
+            </span>
+            <h3>Users</h3>
+            <p class="no-margin">{{users?.length}}</p>
+        </mat-card>
+        <mat-card class="padding-10px border-box cards flex center-center column">
+            <span class="material-symbols-outlined">
+                group
+            </span>
+            <h3>Mentors</h3>
+            <p class="no-margin">{{mentors?.length}}</p>
+        </mat-card>
+        <mat-card class="padding-10px border-box cards flex center-center column">
+            <span class="material-symbols-outlined">
+                event
+            </span>
+            <h3>Meet-ups</h3>
+            <p class="no-margin">{{meetUps?.length}}</p>
+        </mat-card>
+    </div>
+    <div>
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+</div>

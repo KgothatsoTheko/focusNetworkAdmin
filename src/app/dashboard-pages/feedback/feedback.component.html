@@ -1,0 +1,20 @@
+<div class="padding-10px flex row wrap border-box gap-1em full-width">
+    <mat-card class="padding-10px border-box cards pointer hover2 width-40p" *ngFor="let item of Feedback">
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Helpful:</strong></p>
+            <p class="no-margin">{{item.helpful}}</p>
+        </div>
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Easy To Use:</strong></p>
+            <p class="no-margin">{{item.easyToUse}}</p>
+        </div>
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Recommendation:</strong></p>
+            <p class="no-margin">{{item.recommend}}</p>
+        </div>
+        <div class="flex gap-1em row">
+            <p class="no-margin"><strong>Comments:</strong></p>
+            <p class="no-margin">{{item.comments}}</p>
+        </div>
+    </mat-card>
+</div>

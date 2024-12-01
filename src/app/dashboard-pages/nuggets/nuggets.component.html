@@ -1,0 +1,15 @@
+<div class="padding-10px flex row border-box gap-1em full-width wrap">
+    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer" (click)="addInfo()">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+        <h3>Add Information</h3>
+    </mat-card>  
+    <div class="cards" *ngFor="let item of information">
+        <div class="padding-10px border-box magenta-bg white">
+            <h4 class="text-center">{{item.title}}</h4>
+            <p>{{item.description}}</p>
+          </div>
+          <div class="box"></div>
+    </div>
+</div>

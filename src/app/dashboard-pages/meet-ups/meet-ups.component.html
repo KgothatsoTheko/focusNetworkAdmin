@@ -1,0 +1,32 @@
+<div class="padding-10px flex row border-box gap-1em full-width wrap">
+    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer" (click)="addMeet()">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+        <h3>Add new meet-up</h3>
+    </mat-card>  
+    <mat-accordion class="width-30" *ngFor="let item of events">
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                  {{item.title}}
+                </mat-panel-title>
+              <mat-panel-description>
+                {{item.date.slice(0,10)}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+              <p><strong>Location:</strong> {{item.location}}</p>
+              <p><strong>Time:</strong> {{item.time}}</p>
+              <p><strong>Info:</strong> {{item.additionalInfo}}</p>
+              <p><strong>Link:</strong> {{item.link}}</p>
+              <div class="flex end gap-1em">
+                <span class="material-symbols-outlined pointer" matTooltip="update meet-up" (click)="editMeetup(item)">
+                    edit
+                </span>
+                <span class="material-symbols-outlined pointer" matTooltip="delete meet-up" (click)="deleteMeetup(item)">
+                    delete
+                </span>
+            </div>
+            </mat-expansion-panel>
+    </mat-accordion> 
+</div>

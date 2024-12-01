@@ -1,0 +1,97 @@
+<div class="flex gap-1em column space-between-center padding-10px back">
+    <mat-toolbar class="space-between-center flex con">
+        <div class="center-center flex">
+            <img src="../../../assets/images/focusNetwork-logo-removebg-preview.png" alt="logo" height="64px">
+        </div>
+        <div class="welcome-con">
+            <h3>Welcome {{this.currentUser.data.fullName}}</h3>
+        </div>
+        <div class="row gap-1em flex">
+            <div class="flex center-center" (click)="addAdmin()">
+                <span class="material-symbols-outlined pointer" matTooltip="Add Admin">
+                    add_circle
+                </span>
+            </div>
+            <!-- <div class="flex center-center">
+                <span class="material-symbols-outlined" matTooltip="coming soon">
+                    chat
+                </span>
+            </div> -->
+            <div class="row flex gap-1em">
+                <div class="column flex">
+                <small class="no-margin">{{this.currentUser.data.email}}</small>
+                </div>
+                <div class="flex row center-center pointer" matTooltip="Log Out" (click)="logOut()">
+                    <span class="material-symbols-outlined center-center pointer">
+                        logout
+                    </span>
+                </div>
+            </div>
+        </div>
+      </mat-toolbar>
+      <div class="flex row full-height full-width gap-1em">
+        <mat-card class="wrapperNav text-center relative">
+            <div class="flex row gap-05em center-center pointer" routerLink="./home" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Home">
+                    home
+                </span>
+                <div class="text-center">
+                    <h4>Home</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./mentors" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Mentors">
+                    group
+                </span>
+                <div class="text-center">
+                    <h4>Mentors</h4>
+                </div>
+            </div>
+             <div class="flex row gap-05em center-center pointer" routerLink="./meet-ups" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Meet-ups">
+                    event
+                </span>
+                <div class="text-center">
+                    <h4>Meet-ups</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./bookings" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Bookings">
+                    pending_actions
+                </span>
+                <div class="text-center">
+                    <h4>Bookings</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./nuggets" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Nuggets">
+                    info
+                </span>
+                <div class="text-center">
+                    <h4>Nuggets</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./gallery" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Gallery">
+                    photo_library
+                </span>
+                <div class="text-center">
+                    <h4>Gallery</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./feedback" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Feedback">
+                    comment
+                </span>
+                <div class="text-center">
+                    <h4>Feedback</h4>
+                </div>
+            </div>
+        </mat-card>
+        <mat-card class="con full-width"> 
+          <router-outlet></router-outlet>
+        </mat-card>
+      </div><br>
+</div>
+
+

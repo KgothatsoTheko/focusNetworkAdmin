@@ -1,0 +1,26 @@
+<div class="padding-10px flex row border-box gap-1em full-width wrap">
+    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer" (click)="addMentor()">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+        <h3>Add new mentor</h3>
+    </mat-card>
+        <mat-card class="padding-10px gap-1em border-box cards column pointer hover2" *ngFor="let item of mentors">
+            <div class="flex center-center">
+                <img class="round" [src]="item.profileImage" alt="images" width="100%">
+            </div>
+            <div class="column flex">
+                <h3>{{item.fullName}}</h3>
+                <p class="no-margin"><strong>Bio:</strong></p>
+                <p class="no-margin">{{item.bio}}</p>
+            </div>
+            <div class="flex end gap-1em">
+                <span class="material-symbols-outlined" matTooltip="update mentor" (click)="editMentor(item)">
+                    edit
+                </span>
+                <span class="material-symbols-outlined" matTooltip="delete mentor" (click)="deleteMentor(item)">
+                    delete
+                </span>
+            </div>
+        </mat-card>
+</div>
