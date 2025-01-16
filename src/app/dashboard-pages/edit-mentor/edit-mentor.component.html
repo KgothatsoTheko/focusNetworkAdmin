@@ -2,14 +2,7 @@
     <h1 class="no-margin">Edit Mentor</h1>
       <form [formGroup]="mentorForm">
         <div class="flex row gap-1em">
-            <mat-form-field appearance="fill" class="half-width" color="accent">
-                <mat-label>Enter mentor LinkedIn profile image URL</mat-label>
-                <input matInput type="text" placeholder="https://example.com/image.jpg" required formControlName="profileImage">
-                <mat-error *ngIf="mentorForm.get('profileImage')?.hasError('required')">
-                  Profile Image URL is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <mat-form-field appearance="fill" class="half-width" color="accent">
+              <mat-form-field appearance="fill" class="full-width" color="accent">
                     <mat-label>Enter mentor full name</mat-label>
                     <input matInput type="text" placeholder="Joe Doe" required formControlName="fullName">
                     <mat-error *ngIf="mentorForm.get('fullName')?.hasError('required')">
@@ -50,13 +43,13 @@
             </mat-error>
       </mat-form-field>
       </div>
-      <mat-form-field appearance="fill" class="full-width" color="accent">
+      <!-- <mat-form-field appearance="fill" class="full-width" color="accent">
         <mat-label>Enter mentor contact Information (Optional)</mat-label>
         <input matInput type="text" placeholder="0716621625/LinkedIn URL" formControlName="contactInfo">
-        <!-- <mat-error *ngIf="mentorForm.get('contactInfo')?.hasError('required')">
+        <mat-error *ngIf="mentorForm.get('contactInfo')?.hasError('required')">
           Contact Info is <strong>required</strong>
-        </mat-error> -->
-        </mat-form-field>
+        </mat-error>
+        </mat-form-field> -->
             <div class="flex gap-1em center-center full-width">
               <button mat-raised-button color="warn" (click)="cancel()" class="half-width">Cancel</button>
               <button mat-raised-button color="accent" (click)="update()" [disabled]="mentorForm.invalid" class="half-width">Edit Mentor</button>

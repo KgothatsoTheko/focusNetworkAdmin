@@ -9,6 +9,14 @@
         <div class="padding-10px border-box magenta-bg white">
             <h4 class="text-center">{{item.title}}</h4>
             <p>{{item.description}}</p>
+            <div class="flex end gap-1em">
+                <span class="material-symbols-outlined pointer" matTooltip="update information" (click)="editInformation(item)">
+                    edit
+                </span>
+                <span class="material-symbols-outlined pointer" matTooltip="delete information" (click)="deleteInformation(item)">
+                    delete
+                </span>
+                </div>
           </div>
           <div class="box"></div>
     </div>

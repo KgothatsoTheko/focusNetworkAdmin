@@ -7,7 +7,7 @@
     </mat-card>
         <mat-card class="padding-10px gap-1em border-box cards column pointer hover2" *ngFor="let item of mentors">
             <div class="flex center-center">
-                <img class="round" [src]="item.profileImage" alt="images" width="100%">
+                <img class="round" [src]="'https://focus-network-server.vercel.app/api/get-file/' + item.file.id" alt="images" width="50%">
             </div>
             <div class="column flex">
                 <h3>{{item.fullName}}</h3>

@@ -5,7 +5,12 @@
         </span>
         <h3>Add Gallery</h3>
     </mat-card>  
-    <div class="cards" *ngFor="let item of gallery">
-       <img [src]="item.imageUrl" width="100%" alt="Url" >
+    <div class="card" *ngFor="let item of gallery">
+       <img [src]="'https://focus-network-server.vercel.app/api/get-file/' + item.id" width="50%" alt="Url" >
+       <div class="flex center-center magenta-bg half-width pointer"  matTooltip="delete Image" (click)="deleteImage(item)">
+        <span class="material-symbols-outlined white padding-10px border-box">
+            delete
+        </span>
+       </div>
     </div>
 </div>

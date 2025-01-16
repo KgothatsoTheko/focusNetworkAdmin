@@ -27,6 +27,7 @@ import { EditMeetupsComponent } from './dashboard-pages/edit-meetups/edit-meetup
 import { GalleryComponent } from './dashboard-pages/gallery/gallery.component';
 import { UsersComponent } from './dashboard-pages/users/users.component';
 import { FeedbackComponent } from './dashboard-pages/feedback/feedback.component';
+import { EditInformationComponent } from './dashboard-pages/edit-information/edit-information.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FeedbackComponent } from './dashboard-pages/feedback/feedback.component
     GalleryComponent,
     UsersComponent,
     FeedbackComponent,
+    EditInformationComponent,
   ],
   imports: [
     BrowserModule,

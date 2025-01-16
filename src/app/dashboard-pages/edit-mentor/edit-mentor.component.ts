@@ -25,15 +25,13 @@ export class EditMentorComponent {
 
     // Initialize the form with the data
     this.mentorForm = new FormGroup({
-      profileImage: new FormControl(data?.profileImage, Validators.required),
       fullName: new FormControl(data?.fullName, Validators.required),
       bio: new FormControl(data?.bio, Validators.required),
       expertise: new FormControl(data?.expertise, Validators.required),
       availability: new FormGroup({
         date: new FormControl(localDate, Validators.required),
         time: new FormControl(data?.availability[0].time, Validators.required),
-      }),
-      contactInfo: new FormControl(data?.contactInfo),
+      })
     });
 
   }
