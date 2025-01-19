@@ -11,6 +11,7 @@ import { BookingsComponent } from './dashboard-pages/bookings/bookings.component
 import { GalleryComponent } from './dashboard-pages/gallery/gallery.component';
 import { UsersComponent } from './dashboard-pages/users/users.component';
 import { FeedbackComponent } from './dashboard-pages/feedback/feedback.component';
+import { SisterhoodRoomComponent } from './dashboard-pages/sisterhood-room/sisterhood-room.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: 'users', component:UsersComponent},
     {path: 'mentors', component:MentorsComponent},
     {path: 'meet-ups', component:MeetUpsComponent},
+    {path: 'sisterhood-room', component:SisterhoodRoomComponent},
     {path: 'bookings', component:BookingsComponent},
     {path: 'nuggets', component:NuggetsComponent},
     {path: 'gallery', component:GalleryComponent},

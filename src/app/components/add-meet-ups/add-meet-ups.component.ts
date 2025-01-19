@@ -22,7 +22,6 @@ export class AddMeetUpsComponent {
       location: new FormControl('', Validators.required),
       time: new FormControl('', Validators.required),
       additionalInfo: new FormControl(''),
-      link: new FormControl(''),
     })
   }
 

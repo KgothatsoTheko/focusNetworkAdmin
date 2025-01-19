@@ -1,0 +1,32 @@
+<div class="flex center-center column">
+    <h2>Sisterhood Garden</h2>
+    <!-- <p>Room Link: <a [href]="roomLink" target="_blank">{{ roomLink }}</a></p> -->
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-chip *ngIf="isLive" class="accent1">
+                <span class="white">LIVE</span>
+            </mat-chip>
+            <mat-chip *ngIf="!isLive" class="red1">
+                <span class="white">Offline</span>
+            </mat-chip>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/images/focusNetwork-logo-removebg-preview.png" alt="banner">
+        <mat-card-content>
+          <p>Go live and have a audio session with your sisters</p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="flex gap-1em">
+                <button mat-raised-button color="accent" (click)="toggleLive()">
+                    {{ isLive ? 'Stop Live' : 'Go Live' }}
+                  </button>
+                <button mat-stroked-button (click)="toggleMute()" matTooltip="Mute/Unmute"><mat-icon class="no-margin">{{ isMuted ? 'mic_off' : 'mic' }}</mat-icon></button>
+            </div>
+            <div *ngIf="isLive" class="flex gap-1em">
+                <p>Attendees: {{ attendeesCount }}</p>
+              </div>
+        </mat-card-actions>
+      </mat-card>
+</div>

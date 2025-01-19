@@ -28,6 +28,7 @@ import { GalleryComponent } from './dashboard-pages/gallery/gallery.component';
 import { UsersComponent } from './dashboard-pages/users/users.component';
 import { FeedbackComponent } from './dashboard-pages/feedback/feedback.component';
 import { EditInformationComponent } from './dashboard-pages/edit-information/edit-information.component';
+import { SisterhoodRoomComponent } from './dashboard-pages/sisterhood-room/sisterhood-room.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { EditInformationComponent } from './dashboard-pages/edit-information/edi
     UsersComponent,
     FeedbackComponent,
     EditInformationComponent,
+    SisterhoodRoomComponent,
   ],
   imports: [
     BrowserModule,
