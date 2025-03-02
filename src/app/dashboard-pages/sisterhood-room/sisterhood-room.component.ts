@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from 'src/app/services/api.service';
 import { WebRTCService } from 'src/app/services/web-rtc.service';
 
 @Component({
@@ -13,7 +15,7 @@ export class SisterhoodRoomComponent implements OnInit {
   isLive = false;
   attendeesCount = 0;
 
-  constructor(private webrtcService: WebRTCService) {}
+  constructor(private webrtcService: WebRTCService, private api: ApiService, private snackbar: MatSnackBar) {}
 
   ngOnInit() {
     this.roomLink = `${window.location.origin}/join/${this.roomId}`;
@@ -27,7 +29,8 @@ export class SisterhoodRoomComponent implements OnInit {
   toggleMute() {
     this.isMuted = !this.isMuted;
     this.webrtcService.muteAudio(this.isMuted);
-  }
+    this.webrtcService.notifyMuteState(this.roomId, this.isMuted);
+}
 
   toggleLive() {
     if (this.isLive) {
@@ -36,6 +39,14 @@ export class SisterhoodRoomComponent implements OnInit {
     } else {
       this.webrtcService.initializeLocalStream();
       this.webrtcService.connectToRoom(this.roomId);
+      this.api.genericGet('go-live').subscribe(
+        (res:any) => {
+          return this.snackbar.open(`${res}`, "Ok", {duration: 3000})
+        },
+        (error:any) => {
+          return this.snackbar.open(`${error.error.text}`, 'Ok', { duration: 3000 });
+        }
+      )
     }
     this.isLive = !this.isLive;
   }

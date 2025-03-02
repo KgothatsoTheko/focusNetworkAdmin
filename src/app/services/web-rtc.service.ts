@@ -48,6 +48,15 @@ export class WebRTCService {
       }
     });
 
+    this.socket.on('mute-toggle', (data) => {
+      const pc = this.getPeerConnection(data.from);
+      pc.getReceivers().forEach((receiver) => {
+          if (receiver.track.kind === 'audio') {
+              receiver.track.enabled = !data.isMuted;
+          }
+      });
+  });
+
     this.socket.on('user-disconnected', (id) => {
       if (this.peerConnections[id]) {
         this.peerConnections[id].close();
@@ -55,6 +64,10 @@ export class WebRTCService {
       }
     });
   }
+
+  notifyMuteState(roomId: string, isMuted: boolean) {
+    this.socket.emit('mute-toggle', { roomId, isMuted });
+}
 
   private getPeerConnection(id: string): RTCPeerConnection {
     if (!this.peerConnections[id]) {
@@ -76,7 +89,10 @@ export class WebRTCService {
       };
   
       pc.ontrack = (event) => {
-        console.log('New track received:', event.streams[0]);
+        const audio = document.createElement('audio');
+        audio.srcObject = event.streams[0];
+        audio.autoplay = true;
+        document.body.appendChild(audio);
       };
   
       this.peerConnections[id] = pc;
