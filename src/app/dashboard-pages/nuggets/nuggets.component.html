@@ -1,23 +1,25 @@
 <div class="padding-10px flex row border-box gap-1em full-width wrap">
-    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer" (click)="addInfo()">
+    <mat-card class="padding-10px border-box makeBtn flex center-center column hover2 pointer" (click)="addInfo()">
         <span class="material-symbols-outlined">
             add_circle
         </span>
-        <h3>Add Information</h3>
+        <h3 class="no-margin">Add Information</h3>
     </mat-card>  
-    <div class="cards" *ngFor="let item of information">
-        <div class="padding-10px border-box magenta-bg white">
-            <h4 class="text-center">{{item.title}}</h4>
-            <p>{{item.description}}</p>
-            <div class="flex end gap-1em">
-                <span class="material-symbols-outlined pointer" matTooltip="update information" (click)="editInformation(item)">
-                    edit
-                </span>
-                <span class="material-symbols-outlined pointer" matTooltip="delete information" (click)="deleteInformation(item)">
-                    delete
-                </span>
-                </div>
-          </div>
-          <div class="box"></div>
+    <div class="flex row gap-1em wrap">
+        <div class="width-48p make100w" *ngFor="let item of information">
+            <div class="padding-10px border-box magenta-bg white">
+                <h4 class="text-center">{{item.title}}</h4>
+                <p>{{item.description}}</p>
+                <div class="flex end gap-1em">
+                    <span class="material-symbols-outlined pointer" matTooltip="update information" (click)="editInformation(item)">
+                        edit
+                    </span>
+                    <span class="material-symbols-outlined pointer" matTooltip="delete information" (click)="deleteInformation(item)">
+                        delete
+                    </span>
+                    </div>
+              </div>
+              <div class="box"></div>
+        </div>
     </div>
 </div>

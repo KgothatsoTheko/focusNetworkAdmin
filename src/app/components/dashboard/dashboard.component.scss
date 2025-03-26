@@ -29,6 +29,13 @@
         padding: 10px;
         box-sizing: border-box;
     }  
+
+    /* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
     
     .back {
         background: url('../../../assets/images/logo4.png');

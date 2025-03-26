@@ -1,6 +1,6 @@
 <div class="padding-10px border-box flex center-center gap-1em column">
     <h1 class="no-margin">Add New Mentor</h1>
-    <mat-stepper linear #stepper>
+    <mat-stepper #stepper linear [orientation]="(stepperOrientation | async)!" class="full-width">
       <mat-step [stepControl]="mentorForm">
       <form [formGroup]="mentorForm">
         <ng-template matStepLabel>Fill out Mentor details</ng-template>
@@ -28,8 +28,8 @@
             </mat-error>
       </mat-form-field>
       <mat-label>Availability:</mat-label>
-      <div class="flex row gap-1em" formGroupName="availability">
-        <mat-form-field appearance="fill" class="half-width" color="accent">
+      <div class="flex row gap-1em makeColumn" formGroupName="availability">
+        <mat-form-field appearance="fill" class="half-width make100w" color="accent">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" required formControlName="date">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -38,7 +38,7 @@
                 Date is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill" class="half-width" color="accent">
+        <mat-form-field appearance="fill" class="half-width make100w" color="accent">
             <mat-label>Enter Time</mat-label>
             <input matInput type="text" placeholder="12:00 - 16:00" required formControlName="time">
             <mat-error *ngIf="mentorForm.get('availability.time')?.hasError('required')">

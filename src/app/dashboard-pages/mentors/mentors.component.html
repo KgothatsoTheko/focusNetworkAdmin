@@ -1,11 +1,12 @@
 <div class="padding-10px flex row border-box gap-1em full-width wrap">
-    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer" (click)="addMentor()">
+    <mat-card class="padding-10px border-box makeBtn flex center-center column hover2 pointer" (click)="addMentor()">
         <span class="material-symbols-outlined">
             add_circle
         </span>
-        <h3>Add new mentor</h3>
+        <h3 class="no-margin">Add new mentor</h3>
     </mat-card>
-        <mat-card class="padding-10px gap-1em border-box cards column pointer hover2" *ngFor="let item of mentors">
+    <div class="flex row wrap">
+        <mat-card class="padding-10px gap-1em border-box cards make100w column pointer hover2" *ngFor="let item of mentors">
             <div class="flex center-center">
                 <img class="round" [src]="'https://focus-network-server.vercel.app/api/get-file/' + item.file.id" alt="images" width="50%">
             </div>
@@ -23,4 +24,5 @@
                 </span>
             </div>
         </mat-card>
+    </div>
 </div>

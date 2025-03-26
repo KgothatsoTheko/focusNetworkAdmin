@@ -35,6 +35,10 @@ $white: #fff;
     width: 40%;
 }
 
+.width-48p {
+    width: 48%;
+}
+
 .full-height {
     height: 100%;
 }
@@ -205,4 +209,24 @@ $white: #fff;
 .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
     display: flex !important;
     gap: .5em;
+}
+
+@media only screen and (max-width: 600px){
+
+    .makeColumn {
+        flex-direction: column !important;
+    }
+
+    .show {
+        display: contents !important;
+    }
+
+    .showNone {
+        display: none !important;
+    }
+
+    .make100w {
+        width: 100% !important;
+    }
+    
 }

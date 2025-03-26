@@ -1,16 +1,18 @@
 <div class="padding-10px flex row border-box gap-1em full-width wrap">
-    <mat-card class="padding-10px border-box cards flex center-center column hover2 pointer full-width" (click)="addInfo()">
+    <mat-card class="padding-10px border-box makeBtn flex center-center column hover2 pointer full-width" (click)="addInfo()">
         <span class="material-symbols-outlined">
             add_a_photo
         </span>
         <h3>Add Gallery</h3>
     </mat-card>  
-    <div class="card" *ngFor="let item of gallery">
-       <img [src]="'https://focus-network-server.vercel.app/api/get-file/' + item.id" width="50%" alt="Url" >
-       <div class="flex center-center magenta-bg half-width pointer"  matTooltip="delete Image" (click)="deleteImage(item)">
-        <span class="material-symbols-outlined white padding-10px border-box">
-            delete
-        </span>
-       </div>
+    <div class="flex row wrap gap-1em full-width">
+        <div class="width-48p make100w" *ngFor="let item of gallery">
+            <img [src]="'https://focus-network-server.vercel.app/api/get-file/' + item.id" width="100%" alt="Url" >
+            <div class="flex center-center magenta-bg full-width pointer"  matTooltip="delete Image" (click)="deleteImage(item)">
+             <span class="material-symbols-outlined white padding-10px border-box">
+                 delete
+             </span>
+            </div>
+         </div>
     </div>
 </div>

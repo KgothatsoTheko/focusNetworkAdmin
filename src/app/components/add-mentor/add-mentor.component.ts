@@ -1,10 +1,12 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Location } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatStepper } from '@angular/material/stepper';
+import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -22,8 +24,14 @@ export class AddMentorComponent {
   fileChoosen:any
   mentorForm: FormGroup
   uploadForm: FormGroup
+  stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private shared: SharedService, private dialog:MatDialogRef<AddMentorComponent>, private location: Location, private api: ApiService, private router: Router, private snackbar: MatSnackBar) {
+  constructor(private shared: SharedService, breakpointObserver: BreakpointObserver, private dialog:MatDialogRef<AddMentorComponent>, private location: Location, private api: ApiService, private router: Router, private snackbar: MatSnackBar) {
+
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+
     this.mentorForm = new FormGroup({
       fullName: new FormControl('', Validators.required),
       bio: new FormControl('', Validators.required),

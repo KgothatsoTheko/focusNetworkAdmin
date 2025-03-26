@@ -1,13 +1,13 @@
 <div class="padding-10px flex row wrap border-box gap-1em full-width">
-    <mat-card class="padding-10px border-box cards pointer hover2 width-40p" *ngFor="let item of users">
-        <div class="flex center-center">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" width="100%" />
+    <mat-card class="padding-10px border-box cards pointer hover2 width-48p make100w" *ngFor="let item of users">
+        <div class="flex full-width center-center">
+            <img class="flex center-center round" src="https://ionicframework.com/docs/img/demos/avatar.svg" width="50%" />
         </div><br>
         <div class="flex gap-1em row">
             <p class="no-margin"><strong>Full Name:</strong></p>
             <p class="no-margin">{{item.fullName}}</p>
         </div>
-        <div class="flex gap-1em row">
+        <div class="flex gap-1em wrap row">
             <p class="no-margin"><strong>Email:</strong></p>
             <p class="no-margin">{{item.email}}</p>
         </div>

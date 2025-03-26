@@ -3,10 +3,10 @@
         <div class="center-center flex">
             <img src="../../../assets/images/focusNetwork-logo-removebg-preview.png" alt="logo" height="64px">
         </div>
-        <div class="welcome-con">
+        <div class="welcome-con showNone">
             <h3>Welcome {{this.currentUser.data.fullName}}</h3>
         </div>
-        <div class="row gap-1em flex">
+        <div class="row gap-1em flex showNone">
             <div class="flex center-center" (click)="addAdmin()">
                 <span class="material-symbols-outlined pointer" matTooltip="Add Admin">
                     add_circle
@@ -19,7 +19,6 @@
             </div> -->
             <div class="row flex gap-1em">
                 <div class="column flex">
-                <small class="no-margin">{{this.currentUser.data.email}}</small>
                 </div>
                 <div class="flex row center-center pointer" matTooltip="Log Out" (click)="logOut()">
                     <span class="material-symbols-outlined center-center pointer">
@@ -28,9 +27,56 @@
                 </div>
             </div>
         </div>
+        <div class="hamburger show">
+            <button mat-icon-button matTooltip="Menu" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="./home">
+                    <mat-icon>home</mat-icon>
+                    <span>Home</span>
+                </button>
+                <button mat-menu-item (click)="addAdmin()">
+                    <mat-icon>add_circle</mat-icon>
+                    <span>Add Admin</span>
+                  </button>
+                <button mat-menu-item routerLink="./mentors">
+                    <mat-icon>group</mat-icon>
+                    <span>Mentors</span>
+                </button>
+                <button mat-menu-item routerLink="./meet-ups">
+                    <mat-icon>events</mat-icon>
+                    <span>Meet-ups</span>
+                </button>
+                <button mat-menu-item routerLink="./sisterhood-room">
+                    <mat-icon>meeting_room</mat-icon>
+                    <span>Sisterhood Garden</span>
+                </button>
+                <button mat-menu-item routerLink="./bookings">
+                    <mat-icon>pending_actions</mat-icon>
+                    <span>Bookings</span>
+                </button>
+                <button mat-menu-item routerLink="./nuggets">
+                    <mat-icon>info</mat-icon>
+                    <span>Nuggets</span>
+                </button>
+                <button mat-menu-item routerLink="./gallery">
+                    <mat-icon>photo_library</mat-icon>
+                    <span>Gallery</span>
+                </button>
+                <button mat-menu-item routerLink="./feedback">
+                    <mat-icon>comment</mat-icon>
+                    <span>Feedback</span>
+                </button>
+                <button mat-menu-item (click)="logOut()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Log Out</span>
+                </button>
+              </mat-menu>
+        </div>
       </mat-toolbar>
       <div class="flex row full-height full-width gap-1em">
-        <mat-card class="wrapperNav text-center relative">
+        <mat-card class="wrapperNav text-center relative showNone">
             <div class="flex row gap-05em center-center pointer" routerLink="./home" routerLinkActive="active">
                 <span class="material-symbols-outlined" matTooltip="Home">
                     home
