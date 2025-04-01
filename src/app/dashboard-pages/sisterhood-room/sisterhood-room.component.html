@@ -29,4 +29,16 @@
               </div>
         </mat-card-actions>
       </mat-card>
+      <div>
+        <h3>Unmute Requests</h3>
+        <ul>
+          <li *ngFor="let request of unmuteRequests">
+            <p *ngIf="request?.userId">{{ request.userId }}</p>
+            <div *ngIf="request?.userId" class="flex gap-1em">
+              <button mat-button color="primary" (click)="approveUnmute(request.userId)">Approve</button>
+              <button mat-button color="warn" (click)="rejectUnmute(request.userId)">Reject</button>
+            </div>
+          </li>
+        </ul>
+    </div>
 </div>

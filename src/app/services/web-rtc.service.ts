@@ -10,13 +10,31 @@ export class WebRTCService {
   private localStream!: MediaStream;
   private peerConnections: { [key: string]: RTCPeerConnection } = {};
   private attendeesCount = new BehaviorSubject<number>(0);
+  private unmuteRequests = new BehaviorSubject<{ userId: string } | null>(null);
 
   constructor() {
     // this.socket = io('http://localhost:8899');
     this.socket = io('https://focusnetworkserver.onrender.com');
+
     this.socket.on('attendees-count', (count) => {
       this.attendeesCount.next(count);
     });
+
+    this.socket.on('unmute-request', (data) => {
+      this.unmuteRequests.next(data);
+    });
+  }
+
+  getUnmuteRequests() {
+    return this.unmuteRequests.asObservable();
+  }
+
+  approveUnmute(userId: string, roomId: string) {
+    this.socket.emit('unmute-approve', { userId, roomId });
+  }
+
+  rejectUnmute(userId: string) {
+    this.socket.emit('unmute-deny', { userId });
   }
 
   getAttendeesCount() {
