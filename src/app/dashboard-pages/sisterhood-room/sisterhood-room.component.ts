@@ -14,7 +14,7 @@ export class SisterhoodRoomComponent implements OnInit {
   isMuted = false;
   isLive = false;
   attendeesCount = 0;
-  unmuteRequests: { userId: string }[] = [];
+  unmuteRequests: { userId: string, name: string }[] = [];
 
   constructor(private webrtcService: WebRTCService, private api: ApiService, private snackbar: MatSnackBar) {}
 
@@ -28,9 +28,9 @@ export class SisterhoodRoomComponent implements OnInit {
 
     // Listen for unmute requests
     this.webrtcService.getUnmuteRequests().subscribe((request:any) => {
-      if (request && request.userId) {
+      
         this.unmuteRequests.push(request);
-      }
+      
   });
   }
 

@@ -135,6 +135,13 @@ $white: #fff;
 .absolute {
     position: absolute;
 }
+.fixed {
+    position: fixed;
+}
+
+.margin-top-64px {
+    margin-top: 64px;
+}
 
 .top-0p {
     top: 0;
@@ -174,6 +181,10 @@ $white: #fff;
 
 .border-box {
     box-sizing: border-box;
+}
+
+.index-1 {
+    z-index: 1;
 }
 
 // Colors

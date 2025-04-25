@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class WebRTCService {
   private localStream!: MediaStream;
   private peerConnections: { [key: string]: RTCPeerConnection } = {};
   private attendeesCount = new BehaviorSubject<number>(0);
-  private unmuteRequests = new BehaviorSubject<{ userId: string } | null>(null);
+  private unmuteRequests = new Subject<{ userId: string, name: string }>();
 
   constructor() {
     // this.socket = io('http://localhost:8899');

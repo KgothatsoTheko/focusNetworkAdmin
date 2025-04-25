@@ -1,7 +1,8 @@
 <div class="flex center-center column">
     <h2>Sisterhood Garden</h2>
     <!-- <p>Room Link: <a [href]="roomLink" target="_blank">{{ roomLink }}</a></p> -->
-    <mat-card class="example-card">
+    <div class="flex row full-width makeColumn">
+      <mat-card class="half-width make100w">
         <mat-card-header>
           <mat-card-title>
             <mat-chip *ngIf="isLive" class="accent1">
@@ -29,16 +30,17 @@
               </div>
         </mat-card-actions>
       </mat-card>
-      <div>
+      <div class="half-width make100w flex text-center1 column">
         <h3>Unmute Requests</h3>
-        <ul>
+        <ul *ngIf="unmuteRequests">
           <li *ngFor="let request of unmuteRequests">
-            <p *ngIf="request?.userId">{{ request.userId }}</p>
+            <p *ngIf="request?.userId">{{ request.name }}</p>
             <div *ngIf="request?.userId" class="flex gap-1em">
               <button mat-button color="primary" (click)="approveUnmute(request.userId)">Approve</button>
               <button mat-button color="warn" (click)="rejectUnmute(request.userId)">Reject</button>
             </div>
           </li>
         </ul>
+    </div>
     </div>
 </div>
