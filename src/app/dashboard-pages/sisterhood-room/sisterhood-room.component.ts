@@ -57,14 +57,14 @@ export class SisterhoodRoomComponent implements OnInit {
     } else {
       this.webrtcService.initializeLocalStream();
       this.webrtcService.connectToRoom(this.roomId);
-      // this.api.genericGet('go-live').subscribe(
-      //   (res:any) => {
-      //     return this.snackbar.open(`${res}`, "Ok", {duration: 3000})
-      //   },
-      //   (error:any) => {
-      //     return this.snackbar.open(`${error.error.text}`, 'Ok', { duration: 3000 });
-      //   }
-      // )
+      this.api.genericGet('go-live').subscribe(
+        (res:any) => {
+          return this.snackbar.open(`${res}`, "Ok", {duration: 3000})
+        },
+        (error:any) => {
+          return this.snackbar.open(`${error.error.text}`, 'Ok', { duration: 3000 });
+        }
+      )
     }
     this.isLive = !this.isLive;
   }
